@@ -1,0 +1,23 @@
+---
+version: "3"
+services:
+  bank:
+    container_name: bank-cont
+    build: ./bank
+    ports:
+      - "1111:80"
+  bus:
+    container_name: bus-cont
+    build: ./bus
+    ports:
+      - "2222:80"
+  movie:
+    container_name: movie-cont
+    build: ./movie
+    ports:
+      - "3333:80"
+  wallet:
+    container_name: wallet-cont
+    build: ./wallet
+    ports:
+      - "4444:80"
