@@ -1,0 +1,13 @@
+---
+version: "3"
+services:
+  bus:
+    container_name: cont1
+    image: suchitmolugu/docker-images:bus
+    ports:
+      - "1111:80"
+  urbanmart:
+    container_name: cont2
+    image: suchitmolugu/docker-images:urbanmart
+    ports:
+      - "2222:80"
