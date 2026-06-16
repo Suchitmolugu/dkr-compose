@@ -1,0 +1,33 @@
+---
+services:
+  bus:
+    image: suchitmolugu/docker-images:bus
+    ports:
+      - "1111:80"
+    deploy:
+      replicas: 2
+    volumes:
+      - type: volume
+        source: busvolume
+        target: /usr/share/nginx/html
+        read_only: true
+    networks:
+      - busnetwork
+      - urbnmartnetwork
+  urbanmart:
+    image:  suchitmolugu/docker-images:urbanmart
+    ports:
+      - "2222:80"
+    deploy:
+      replicas: 2
+    volumes:
+      - urbnmartvolume:/usr/local/apache2/htdocs:ro
+    networks:
+      - urbnmartnetwork
+      - busnetwork
+volumes:
+  busvolume:
+  urbnmartvolume:
+networks:
+  busnetwork:
+  urbnmartnetwork:
